@@ -48,7 +48,7 @@
 #v(0.5em)
 
 #pad(x: 2em)[
-  The files under `/proc` are witnesses, and they are not equally independent. Some are produced by the kernel from its own bookkeeping, and some are bytes in the writable memory of the process, passed through by the kernel. I reproduced on one Linux 7.1.5 machine what `ps`, `top` and `netstat` read, what a process can change in its own account, and what the kernel allowed and refused. I built `wtn`, a C program which compares the executable, the file its path names and the mapped memory. Its testbed of 19 programs passed 19 of 19 as root, and this paper states what each disagreement can and cannot mean.
+  We speak of a process as though it has a single identity. Yet Linux gives us several accounts of the same process: the name it presents, the executable the kernel records, the files visible through its namespace, and the instructions mapped into its memory. These accounts need not agree, and even when they do, they are not necessarily independent. I wanted to understand what can be established from their agreement or disagreement, and where observation ends and assumption begins. I examined what `ps`, `top`, and `netstat` actually read, then wrote a program called `wtn` to compare process identity, executable files, and mapped memory. Nineteen controlled experiments explore how these accounts change, sometimes through deliberate manipulation and sometimes through ordinary system behavior. What emerged is a distinction between what the system reports, what can be checked against something else, and what must still be taken on trust.
 ]
 
 = Introduction
