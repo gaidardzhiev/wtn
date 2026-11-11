@@ -515,6 +515,10 @@ The procedure takes the kernel's own file, memory and process code as given, and
 
 Thompson's Turing lecture makes the argument one layer down: "You can't trust code that you did not totally create yourself." [8] Killian [1] and Plan 9 `proc(3)` [2] give the idea of process as file, and Plan 9's `text` corresponds to `exe`. The talk by Kalvāns [5] is the starting point. The Linux manual pages [6] are the reference for each file, and Sections 4 to 8 record where they differ from what I saw. Volatility 3 has a Linux plugin that lists process memory ranges of interest from a memory image [9]. Comparing memory with disk is not a new idea, and I do not claim it is.
 
+= Conclusion
+
+A process on Linux has no single identity; it has a set of witnesses with different authors and different views. Standard utilities treat those witnesses as interchangeable, repeating a process's claims about itself alongside facts recorded by the kernel. Comparing witnesses whose producers differ turns silent assumptions into explicit checks, yet the comparison itself still stops at the kernel boundary. Trust cannot be removed from observation, only pushed down one layer and made visible.
+
 #heading(numbering: none)[References]
 
 #set par(hanging-indent: 1.6em, spacing: 0.5em)
